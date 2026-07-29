@@ -1,5 +1,17 @@
 function convertToRoman(num) {
-    const roman = [
+    const obj = {
+        0: ['M', 1000],
+        1: ['D', 500],
+        2: ['C', 100],
+        3: ['L', 50],
+        4: ['X', 10],
+        5: ['V', 5],
+        6: ['I', 1]
+    };
+
+    let result = "";
+
+    const values = [
         ["M", 1000],
         ["CM", 900],
         ["D", 500],
@@ -15,11 +27,9 @@ function convertToRoman(num) {
         ["I", 1]
     ];
 
-    let result = "";
-
-    for (let [symbol, value] of roman) {
+    for (const [roman, value] of values) {
         while (num >= value) {
-            result += symbol;
+            result += roman;
             num -= value;
         }
     }
@@ -29,5 +39,5 @@ function convertToRoman(num) {
 
 //console.log(convertToRoman(36)); // XXXVI
 
-// do not edit below this line 
+// do not edit below this line
 module.exports = convertToRoman
